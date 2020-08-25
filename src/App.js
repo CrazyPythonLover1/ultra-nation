@@ -16,12 +16,22 @@ function App() {
     } )
     .catch(error => console.log(error))
   },[])
+
+  // Way to add click handler
+  // function handleAddCountry(country){
+  //   console.log('Country added',country)
+  // }
+
+  const handleAddCountry = (country)=>{
+    console.log('Country added', country)
+  }
+
   return (
     <div className="App">
       <h1> Countries Loaded: {countries.length} </h1>
       <ul>
         {
-          countries.map(country => <Country country={country} >  </Country>)
+          countries.map(country => <Country country={country} handleAddCountry={handleAddCountry} key={country.alpha3Code} >  </Country>)
         }
       </ul>
       

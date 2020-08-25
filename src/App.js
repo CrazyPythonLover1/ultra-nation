@@ -24,9 +24,8 @@ function App() {
   //   console.log('Country added',country)
   // }
 
-  const handleAddCountry = (country)=>{
-    console.log('Country added', country)
-    const newCart = [...cart, country];;
+  const handleAddCountry = (country)=>{ 
+    const newCart = [...cart, country];
     setCart(newCart);
   }
 

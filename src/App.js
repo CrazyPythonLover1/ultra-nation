@@ -21,7 +21,7 @@ function App() {
       <h1> Countries Loaded: {countries.length} </h1>
       <ul>
         {
-          countries.map(country => <Country name={country.name} >  </Country>)
+          countries.map(country => <Country country={country} >  </Country>)
         }
       </ul>
       

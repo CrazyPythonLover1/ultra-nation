@@ -4,14 +4,25 @@ import './App.css';
 
 function App() {
   const [countries, setCountries] = useState([])
+
+  // load DATA using useEffect
   useEffect(()=>{
     fetch('https://restcountries.eu/rest/v2/all')
     .then(res=>res.json())
-    .then(data=>setCountries(data))
+    .then(data=>{
+      setCountries(data);
+      //data.map(country => console.log(country.name))
+    } )
+    .catch(error => console.log(error))
   },[])
   return (
     <div className="App">
       <h1> Countries Loaded: {countries.length} </h1>
+      <ul>
+        {
+          countries.map(country => <li> {country.name} </li>)
+        }
+      </ul>
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>

@@ -2,9 +2,11 @@ import React, { useState, useEffect } from 'react';
 import logo from './logo.svg';
 import './App.css';
 import Country from './components/Country/Country';
+import Cart from './components/Cart/Cart';
 
 function App() {
   const [countries, setCountries] = useState([])
+  const [cart, setCart] = useState([])
 
   // load DATA using useEffect
   useEffect(()=>{
@@ -24,14 +26,18 @@ function App() {
 
   const handleAddCountry = (country)=>{
     console.log('Country added', country)
+    const newCart = [...cart, country];;
+    setCart(newCart);
   }
 
   return (
     <div className="App">
       <h1> Countries Loaded: {countries.length} </h1>
+      <p> Country Added: {cart.length}  </p>
+      <Cart cart={cart} > </Cart>
       <ul>
         {
-          countries.map(country => <Country country={country} handleAddCountry={handleAddCountry} key={country.alpha3Code} >  </Country>)
+          countries.map(country => <Country country={country} handleAddCountry={handleAddCountry} cart={cart} key={country.alpha3Code} >  </Country>)
         }
       </ul>
       

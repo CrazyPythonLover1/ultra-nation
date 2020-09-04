@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const Country = (props) => {
     const {name, population,region, flag}= props.country
@@ -15,6 +16,7 @@ const Country = (props) => {
             <img style={flagStyle} src={flag} alt=""/>
             <p> Population: {population} </p>
             <p> Region: {region} </p>
+            <Link to={`/country/${name}`}> Show Detail </Link>
             <button onClick={()=>props.handleAddCountry(props.country)} > Add country </button>
         </div>
     );
